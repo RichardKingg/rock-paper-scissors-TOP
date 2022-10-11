@@ -5,6 +5,14 @@ function getComputerChoice() {
   return rando, arrGame[rando];
 }
 
+// Makes the playerSelection lower case and then Capitalizes the first letter
+function caseIn(playerSelection) {
+  return (
+    playerSelection.charAt(0).toUpperCase() +
+    playerSelection.slice(1).toLowerCase()
+  );
+}
+
 function playRound(playerSelection, computerSelection) {
   if (
     (playerSelection == "Rock" && computerSelection == "Rock") ||
@@ -26,3 +34,6 @@ function playRound(playerSelection, computerSelection) {
     return "You win, scissors beat paper!";
   }
 }
+const playerSelection = caseIn("ROCK");
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
