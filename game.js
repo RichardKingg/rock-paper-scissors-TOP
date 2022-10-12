@@ -13,11 +13,12 @@ function caseIn(playerSelection) {
   );
 }
 
-const playerWin = true;
-const computerWin = true;
-let globalScore = 0;
+let playerWin = false;
+let computerWin = false;
 let playerScore = 0;
 let computerScore = 0;
+let playerSelection;
+let computerSelection;
 
 function playRound(playerSelection, computerSelection) {
   if (
@@ -25,29 +26,53 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "Paper" && computerSelection == "Paper") ||
     (playerSelection == "Scissors" && computerSelection == "Scissors")
   ) {
-    return "Draw!";
+    playerWin = false;
+    computerWin = false;
   } else if (playerSelection == "Rock" && computerSelection == "Paper") {
-    return "You lose, paper beats rock!";
+    computerWin = true;
+    console.log("You lose, paper beats rock!");
   } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-    return "You lose, scissors beat paper!";
+    computerWin = true;
+    console.log("You lose, scissors beat paper!");
   } else if (playerSelection == "Scissors" && computerSelection == "Rock") {
-    return "You lose, rock beats scissors!";
+    computerWin = true;
+    console.log("You lose, rock beats scissors!");
   } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    return "You win, rock beats scissors!";
+    playerWin = true;
+    console.log("You win, rock beats scissors!");
   } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-    return "You win, paper beats rock!";
+    playerWin = true;
+    console.log("You win, paper beats rock!");
   } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-    return "You win, scissors beat paper!";
+    playerWin = true;
+    console.log("You win, scissors beat paper!");
   }
 }
 
 // Game of 5 rounds function
 function game() {
   for (let i = 0; i < 5; i++) {
-    playRound(playerSelection, computerSelection);
-    console.log();
+    computerSelection = getComputerChoice();
+    playerSelection = caseIn(prompt("Rock, Paper or Scissors?"));
+    for (let i = 0; i < 1; i++) {
+      playRound(playerSelection, computerSelection);
+      if (playerSelection === computerSelection) {
+        console.log("Draw!");
+      } else if (playerWin === true) {
+        playerScore++;
+      } else if (computerWin === true) {
+        computerScore++;
+      }
+      console.log(playerScore, computerScore);
+    }
+  }
+  if (playerScore === computerScore) {
+    console.log("The game is a draw!");
+  } else if (playerScore > computerScore) {
+    console.log("Player wins game!");
+  } else if (computerScore > playerScore) {
+    console.log("Computer wins game!");
   }
 }
-const playerSelection = caseIn(prompt("Rock, Paper or Scissors?"));
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+game();
