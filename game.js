@@ -7,6 +7,9 @@ function getComputerChoice() {
 
 // Makes the playerSelection lower case and then Capitalizes the first letter
 function caseIn(playerSelection) {
+  if (playerSelection === null) {
+    return;
+  }
   return (
     playerSelection.charAt(0).toUpperCase() + // This line capitalizes first letter
     playerSelection.slice(1).toLowerCase() // This line cuts the first letter and leaves the rest, then it gets lower-cased
@@ -54,6 +57,9 @@ function game() {
   for (let i = 0; i < 5; i++) {
     computerSelection = getComputerChoice();
     playerSelection = caseIn(prompt("Rock, Paper or Scissors?"));
+    if (playerSelection === null) {
+      return;
+    }
     for (let i = 0; i < 1; i++) {
       playRound(playerSelection, computerSelection);
       if (playerSelection === computerSelection) {
