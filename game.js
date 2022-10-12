@@ -8,8 +8,8 @@ function getComputerChoice() {
 // Makes the playerSelection lower case and then Capitalizes the first letter
 function caseIn(playerSelection) {
   return (
-    playerSelection.charAt(0).toUpperCase() +
-    playerSelection.slice(1).toLowerCase()
+    playerSelection.charAt(0).toUpperCase() + // This line capitalizes first letter
+    playerSelection.slice(1).toLowerCase() // This line cuts the first letter and leaves the rest, then it gets lower-cased
   );
 }
 
@@ -32,6 +32,14 @@ function playRound(playerSelection, computerSelection) {
     return "You win, paper beats rock!";
   } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
     return "You win, scissors beat paper!";
+  }
+}
+
+// Game of 5 rounds function
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection);
+    console.log(); // **pending part, add a score too
   }
 }
 const playerSelection = caseIn("ROCK");
