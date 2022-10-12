@@ -13,6 +13,12 @@ function caseIn(playerSelection) {
   );
 }
 
+const playerWin = true;
+const computerWin = true;
+let globalScore = 0;
+let playerScore = 0;
+let computerScore = 0;
+
 function playRound(playerSelection, computerSelection) {
   if (
     (playerSelection == "Rock" && computerSelection == "Rock") ||
@@ -39,9 +45,9 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   for (let i = 0; i < 5; i++) {
     playRound(playerSelection, computerSelection);
-    console.log(); // **pending part, add a score too
+    console.log();
   }
 }
-const playerSelection = caseIn("ROCK");
+const playerSelection = caseIn(prompt("Rock, Paper or Scissors?"));
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
