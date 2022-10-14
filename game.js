@@ -60,17 +60,26 @@ function game() {
     if (playerSelection === null) {
       return;
     }
-    for (let i = 0; i < 1; i++) {
-      playRound(playerSelection, computerSelection);
-      if (playerSelection === computerSelection) {
-        console.log("Draw!");
-      } else if (playerWin === true) {
-        playerScore++;
-      } else if (computerWin === true) {
-        computerScore++;
-      }
-      console.log(playerScore, computerScore);
+    playRound(playerSelection, computerSelection);
+    if (playerSelection === computerSelection) {
+      console.log("Draw!");
+    } else if (playerWin === true) {
+      playerScore++;
+    } else if (computerWin === true) {
+      computerScore++;
     }
+    console.log(playerScore, computerScore);
+    //for (let i = 0; i < 1; i++) {
+    // playRound(playerSelection, computerSelection);
+    //if (playerSelection === computerSelection) {
+    //  console.log("Draw!");
+    //  } else if (playerWin === true) {
+    //     playerScore++;
+    //  } else if (computerWin === true) {
+    //   computerScore++;
+    // }
+    //  console.log(playerScore, computerScore);
+    // }
   }
   if (playerScore === computerScore) {
     console.log("The game is a draw!");
