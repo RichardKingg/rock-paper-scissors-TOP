@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="game.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
     <title>Rock-paper-scissors TOP</title>
   </head>
   <body>
-    <script src="game.js"></script>
+    <div class="btnCont">
+      <button class="btn" value="Rock">Rock</button>
+      <button class="btn" value="Paper">Paper</button>
+      <button class="btn" value="Scissors">Scissors</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div id="scoreCont">
+      <p id="playerMarker">Player Score: 0</p>
+      <p id="computerMarker">Computer Score: 0</p>
+      <p id="selections">Select a button!</p>
+      <p id="gameStatus">*****</p>
+      <p id="winMsg">*****</p>
+    </div>
   </body>
 </html>
